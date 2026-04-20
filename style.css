@@ -1,0 +1,200 @@
+:root {
+  --ink: #f5f7ff;
+  --muted: #dfe7ff;
+  --line: rgba(255, 255, 255, 0.42);
+  --accent: #ff6f2b;
+  --accent-deep: #d84f10;
+  --dark: #07183e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background-image:
+    radial-gradient(circle at 12% 86%, rgba(255, 127, 45, 0.42), transparent 30%),
+    linear-gradient(110deg, rgba(8, 24, 68, 0.62) 0%, rgba(8, 24, 68, 0.2) 58%, rgba(8, 24, 68, 0.45) 100%),
+    url("assets/What-are-Stacks_F.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.scene {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.facade-left {
+  position: absolute;
+  left: clamp(37vw, 40vw, 45vw);
+  top: clamp(72vh, 74vh, 76vh);
+  width: clamp(300px, 25vw, 420px);
+  padding: clamp(0.7rem, 1.6vw, 1rem);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  animation: panelIn 500ms ease-out;
+}
+
+.amounts {
+  display: grid;
+  gap: 0.12rem;
+  margin-top: 0.6rem;
+}
+
+.caption {
+  margin: 0.34rem 0 0;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  text-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.3),
+    0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 16px rgba(255, 200, 100, 0.4);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+}
+
+.value {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.35),
+    3px 3px 8px rgba(0, 0, 0, 0.25),
+    0 0 12px rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(255, 180, 80, 0.5),
+    0 0 30px rgba(255, 150, 50, 0.3);
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  line-height: 1.05;
+}
+
+.value-usd {
+  font-size: clamp(1rem, 1.65vw, 1.3rem);
+}
+
+.actions {
+  margin-top: 0.85rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#statusText {
+  margin: 0;
+  font-size: 0.62rem;
+  color: rgba(255, 244, 235, 0.95);
+}
+
+#refreshBtn {
+  border: 0;
+  border-radius: 6px;
+  padding: 0.36rem 0.6rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #fff8f1;
+  background: linear-gradient(135deg, #0b2f72, #124ca6);
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+#refreshBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+#refreshBtn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .facade-left {
+    left: 2vw;
+    right: 2vw;
+    width: auto;
+    top: auto;
+    bottom: 2vw;
+    padding: 1.2rem 1rem;
+    background: rgba(7, 24, 62, 0.82);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  }
+  .amounts {
+    gap: 0.22rem;
+  }
+  .caption {
+    font-size: 0.82rem;
+  }
+  .value, .value-usd {
+    font-size: 1.15rem;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 660px) {
+  body {
+    background-position: 62% center;
+    font-size: 15px;
+  }
+  .facade-left {
+    left: 0.5rem;
+    right: 0.5rem;
+    width: auto;
+    top: auto;
+    bottom: 0.5rem;
+    padding: 1.1rem 0.7rem;
+    border-radius: 14px;
+  }
+  .amounts {
+    gap: 0.18rem;
+  }
+  .caption {
+    font-size: 0.74rem;
+  }
+  .value, .value-usd {
+    font-size: 1rem;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  #refreshBtn {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+  }
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

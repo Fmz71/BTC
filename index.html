@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BTC</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' fill='%23F7931A'>₿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene">
+    <section class="facade-left" aria-live="polite">
+      <div class="amounts">
+        <p class="caption">Solde BTC</p>
+        <p class="value" id="btcBalance">Chargement...</p>
+
+        <p class="caption">Valeur</p>
+        <p class="value value-usd" id="usdBalance">Chargement...</p>
+      </div>
+
+      <div class="actions">
+        <button id="refreshBtn" type="button">Actualiser</button>
+        <p id="statusText">Récupération des données blockchain...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
